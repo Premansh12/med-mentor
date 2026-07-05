@@ -21,7 +21,7 @@
     "education"
   ],
   "author": "premansh",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/Premansh12/med-mentor/issues"
   },
@@ -31,6 +31,7 @@
     "formats",
     "references",
     "SKILL.md",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ]
 }
