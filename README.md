@@ -103,6 +103,8 @@ An integrated safety gate ensures all medical instruction is **high-fidelity and
 This repository contains the skill configuration, documentation references for the AI agent, and template formats:
 ```
 med-mentor/
+├── assets/
+│   └── styles.css                 # The seed stylesheet (copied to target workspaces)
 ├── bin/
 │   └── cli.js                     # CLI execution script (run via npx)
 ├── formats/
@@ -110,13 +112,18 @@ med-mentor/
 │   ├── RESOURCES-FORMAT.md        # Template for the user's RESOURCES.md
 │   └── LEARNING-RECORD-FORMAT.md  # Template for session learning records
 ├── references/
+│   ├── design-system.md           # Visual design & editorial system guidelines
 │   ├── learning-design.md         # Educational philosophy and lesson pacing
 │   ├── lesson-authoring.md        # Interactive HTML widgets and asset specs
 │   ├── mission-and-resources.md   # Guidance on setting up goals and study sources
+│   ├── reference-documents.md     # Reference documents layout guidelines
 │   └── safety-and-sourcing.md     # Non-negotiable clinical safety & citation rules
 ├── SKILL.md                       # Entry point skill definition for agents
 └── LICENSE                        # GNU GPL v3 License
 ```
+
+> [!TIP]
+> `assets/styles.css` in this repository serves as a **starter** implementation of the editorial visual guidelines. The CLI automatically copies it into the `./assets/` folder of new workspaces so you can extend it rather than redefining custom CSS styling per lesson.
 
 ### The Teaching Workspace (Created Locally)
 When the skill runs or is initialized, it builds the following workspace in your current directory:

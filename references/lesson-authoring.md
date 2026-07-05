@@ -15,28 +15,27 @@ Keep it short with one tangible clinical win per lesson (e.g. "confidently disti
 - Include a visible reminder to ask the agent follow-up questions; the agent is their teacher and can clarify edge cases the lesson didn't cover
 - Carry a small, unobtrusive footer noting the lesson is for **education only** — see `safety-and-sourcing.md`, which applies to every lesson without exception
 
-## Editorial, non-technical UX
+## Visual design and interaction standard
 
-The audience is a clinician, not a developer — a nurse on a ten-minute break, a resident post-call, someone who has never called something a "widget" in their life. The UI should read like a well-edited medical magazine or a beautifully typeset handout, not like software. Nothing about the experience should require figuring out how an interface works before engaging with the medicine.
+Every lesson follows the editorial design system in `design-system.md` — palette, type scale, and component library (hero, pull quote, evidence block, figure, etc.). Read it before styling anything; don't improvise a look per lesson. Lessons use the **condensed weight** of that system (hero, one or two sections, one interactive element, footer) — the fuller journal treatment (drop caps, margin notes, sticky nav, reading progress) belongs to `./reference/*.html` documents, per `reference-documents.md`.
 
-**Read like editorial, not like an app.**
-Think *New England Journal* meets a well-designed print handout, not a dashboard. Generous margins, a clear type hierarchy (one confident heading, calm body text, restrained use of color), and real whitespace — not because it looks nice, but because it lowers the cognitive load competing with the clinical content itself. Pick one deliberate palette and typeface pairing per workspace (stored in `./assets/styles.css`) and hold it steady across every lesson, so the course feels authored, not templated.
+On top of that visual system, the interaction itself has to work for a clinician, not a developer — a nurse on a ten-minute break, a resident post-call, someone who has never called something a "widget" in their life:
 
 **Every control should be self-explanatory, with zero instructions needed.**
-If a button, card, or input needs a tooltip or a line of instructions to be understood, redesign it instead of explaining it. Use plain, active-voice labels a clinician would actually say out loud: "Check my answer," "Show the reasoning," "Next case" — never "Submit," "Validate," or "Proceed." A person should be able to look at the screen for two seconds and know exactly what will happen if they tap something.
+If a button or input needs a tooltip or a line of instructions to be understood, redesign it instead of explaining it. Use plain, active-voice labels a clinician would actually say out loud: "Check my answer," "Show the reasoning," "Next case" — never "Submit," "Validate," or "Proceed." A person should be able to look at the screen for two seconds and know exactly what will happen if they tap something.
 
 **Design for a distracted, tired, possibly-on-a-phone user.**
 Large tap targets (44px minimum), high contrast, generous line height, no hover-only interactions (everything must work on tap alone), no timed elements unless the lesson is explicitly timing a skill on purpose. Assume one thumb, imperfect lighting, and a ten-minute window, not a mouse and a quiet desk.
 
 **Feedback should feel like a good attending, not a system message.**
-When an answer is right: quiet, confident affirmation plus the one-line "why." When it's wrong: no red X, no buzzer — state plainly what the correct answer is and why, the same way a good teacher corrects without embarrassing. Never say "Incorrect" alone; always pair it with the reasoning that makes the correction useful.
+When an answer is right: quiet, confident affirmation plus the one-line "why." When it's wrong: no red X, no buzzer, no stoplight color — state plainly what the correct answer is and why, the same way a good teacher corrects without embarrassing. Never say "Incorrect" alone; always pair it with the reasoning that makes the correction useful.
 
 **Hide the machinery.**
 No visible JSON, no console logs, no raw technical error states. If something can't be computed (e.g. a calculator input is out of range), say what's wrong in plain clinical terms ("Weight must be greater than 0 kg") — never a stack trace or a generic "invalid input."
 
 ## Interactive HTML capabilities
 
-This is what makes a lesson more than a static page. Every lesson should include at least one interactive element with immediate feedback — a tight feedback loop matters more in medicine than almost anywhere else, since uncorrected misconceptions here have real stakes. Build every widget to the editorial, non-technical UX standard above — the interaction should feel like turning a page, not operating a tool.
+This is what makes a lesson more than a static page. Every lesson should include at least one interactive element with immediate feedback — a tight feedback loop matters more in medicine than almost anywhere else, since uncorrected misconceptions here have real stakes. Style every widget with `design-system.md`'s components (evidence blocks, hairline dividers, restrained accent color) rather than default form/button chrome — the interaction should feel like turning a page, not operating a tool.
 
 Build lessons as plain, self-contained HTML/CSS/vanilla JS (no build step, no server) so they open directly in a browser and survive being copied or archived. Pull shared behavior from `./assets/` rather than re-inlining it per lesson.
 

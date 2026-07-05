@@ -28,6 +28,7 @@ Treat the current directory as a teaching workspace:
 | Deciding what to teach next (no topic specified) | `references/learning-design.md` (Zone of Proximal Development) |
 | Writing or revising a lesson | `references/lesson-authoring.md` |
 | Building any interactive widget (quiz, calculator, flashcards, checklist, diagram) | `references/lesson-authoring.md` § Interactive HTML Capabilities |
+| Styling any lesson or reference doc, or touching `./assets/styles.css` | `references/design-system.md` (palette, type, component library) |
 | Populating or updating `RESOURCES.md`, or the user needs a community | `references/mission-and-resources.md` |
 | Creating a `./reference/*.html` cheat sheet or glossary | `references/reference-documents.md` |
 | Any lesson content involving dosing, diagnostic criteria, patient cases, or real-clinical-decision questions | `references/safety-and-sourcing.md` — always applies, read once per session and keep in mind throughout |

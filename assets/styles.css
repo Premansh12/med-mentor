@@ -1,0 +1,351 @@
+/* med-mentor shared stylesheet — the editorial design system in design-system.md.
+   Every lesson and reference document links this file rather than
+   redefining tokens or components per page. */
+
+:root {
+  /* Palette — paper, not screen. Swap --color-accent per workspace if desired,
+     but keep it to one accent, used sparingly, never as a fill. */
+  --color-bg: #F8F6F1;
+  --color-paper: #FCFBF8;
+  --color-text: #1B1B1B;
+  --color-muted: #676767;
+  --color-accent: #6E1F2B;
+  --color-hairline: #DEDAD1;
+
+  /* Type */
+  --font-serif: "EB Garamond", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", "IBM Plex Sans", -apple-system, sans-serif;
+
+  --size-hero: 72px;
+  --size-section: 40px;
+  --size-subsection: 26px;
+  --size-body: 20px;
+  --size-caption: 14px;
+  --size-footnote: 13px;
+
+  --space-section: 4rem;
+  --tap-min: 44px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--size-body);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0 1.5rem;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 0 6rem;
+}
+
+/* ---- Hero ---- */
+
+.hero {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-hairline);
+  margin-bottom: var(--space-section);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 6vw, var(--size-hero));
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.hero-dek {
+  font-family: var(--font-sans);
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  margin: 0 0 1.25rem;
+}
+
+.hero-meta {
+  font-size: var(--size-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ---- Section structure ---- */
+
+section {
+  margin-bottom: var(--space-section);
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  color: var(--color-muted);
+  font-size: var(--size-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-hairline);
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 4vw, var(--size-section));
+  margin: 0 0 1rem;
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--size-subsection);
+  margin: 2rem 0 0.75rem;
+}
+
+.chapter-number {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--color-hairline);
+  margin-bottom: -0.5rem;
+}
+
+/* ---- Drop cap ---- */
+
+.drop-cap::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.08em;
+  padding-top: 0.05em;
+}
+
+/* ---- Pull quote ---- */
+
+.pull-quote {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 34rem;
+}
+
+/* ---- Margin note (inline box on narrow viewports, true margin on wide) ---- */
+
+.margin-note {
+  border-left: 2px solid var(--color-accent);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background: var(--color-paper);
+  font-size: var(--size-caption);
+  color: var(--color-muted);
+}
+
+.margin-note strong {
+  display: block;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  margin-bottom: 0.35rem;
+}
+
+@media (min-width: 1100px) {
+  .margin-note--right {
+    float: right;
+    width: 220px;
+    margin: 0.25rem -260px 1rem 2rem;
+  }
+}
+
+/* ---- Figure ---- */
+
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figure img, figure svg {
+  max-width: 100%;
+}
+
+figcaption {
+  font-size: var(--size-caption);
+  color: var(--color-muted);
+  margin-top: 0.75rem;
+}
+
+/* ---- Evidence block ---- */
+
+.evidence-block {
+  border-top: 1px solid var(--color-hairline);
+  border-bottom: 1px solid var(--color-hairline);
+  padding: 1.25rem 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.evidence-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+
+.evidence-row dt {
+  color: var(--color-muted);
+  font-size: var(--size-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.evidence-row dd { margin: 0; }
+
+/* ---- Clinical pearl / controversy box ---- */
+
+.callout {
+  border: 1px solid var(--color-hairline);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.callout-label {
+  display: block;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--size-caption);
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+/* ---- References ---- */
+
+.reference {
+  border-top: 1px solid var(--color-hairline);
+  padding: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.reference dt {
+  font-size: var(--size-footnote);
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+.reference a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.reference a:hover,
+.reference a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ---- Sticky nav (long-form reference docs only) ---- */
+
+.side-nav {
+  position: sticky;
+  top: 2rem;
+  font-size: var(--size-caption);
+}
+
+.side-nav a {
+  display: block;
+  padding: 0.35rem 0;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.side-nav a.active {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ---- Reading progress (long-form reference docs only) ---- */
+
+.reading-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reading-progress .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--color-muted);
+}
+
+.reading-progress .dot.done {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ---- Interactive controls: plain, tappable, no dashboard chrome ---- */
+
+button, .control {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  min-height: var(--tap-min);
+  min-width: var(--tap-min);
+  padding: 0.65rem 1.25rem;
+  background: var(--color-text);
+  color: var(--color-paper);
+  border: none;
+  cursor: pointer;
+}
+
+button:hover, .control:hover { opacity: 0.9; }
+button:focus-visible, .control:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+.control-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-hairline);
+}
+
+/* Feedback states: weight and words, not stoplight color */
+
+.feedback-correct {
+  border-left: 3px solid var(--color-text);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.feedback-correct::before { content: "Right — "; font-weight: 600; }
+
+.feedback-incorrect {
+  border-left: 3px solid var(--color-muted);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.feedback-incorrect::before { content: "Not quite — "; font-weight: 600; }
+
+footer.education-note {
+  margin-top: var(--space-section);
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-hairline);
+  font-size: var(--size-footnote);
+  color: var(--color-muted);
+}

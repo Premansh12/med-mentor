@@ -76,6 +76,15 @@ try {
     console.log('📝 Created: ./NOTES.md');
   }
 
+  // Copy CSS design tokens/stylesheet to workspace assets folder
+  const stylesSource = path.join(packageRoot, 'assets', 'styles.css');
+  const stylesDest = path.join(targetRoot, 'assets', 'styles.css');
+  if (copyFileSyncSafe(stylesSource, stylesDest)) {
+    console.log('🎨 Created: ./assets/styles.css');
+  } else {
+    console.log('⚠️  Skipped: ./assets/styles.css (already exists)');
+  }
+
   // 3. Install the custom skill to various agent config directories
   const agentDirs = [
     path.join('.agents', 'skills', 'med-mentor'),
