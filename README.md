@@ -1,3 +1,5 @@
+![Med Mentor Banner](assets/banner.png)
+
 # med-mentor
 
 ### A stateful workspace and Agent Harness skill for medical education & clinical reasoning
