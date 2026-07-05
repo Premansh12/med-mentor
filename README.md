@@ -1,6 +1,6 @@
 # med-mentor
 
-### A stateful workspace and Claude agent skill for medical education & clinical reasoning
+### A stateful workspace and Agent Harness skill for medical education & clinical reasoning
 
 [![License: GPL v3](https://img.shields.gl/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![GitHub version](https://img.shields.gl/badge/version-1.1.0-green.svg)](https://github.com/Premansh12/med-mentor/releases)
