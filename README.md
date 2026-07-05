@@ -14,7 +14,8 @@
 - [How it Works](#how-it-works)
 - [Getting Started](#getting-started)
   - [Installing as an Agent Skill](#1-installing-as-an-agent-skill-recommended)
-  - [Initializing the Workspace CLI](#2-initializing-the-workspace-cli)
+  - [Initializing the Workspace CLI](#2-initializing-the-workspace-cli-scaffolding-for-all-agents)
+- [Features & Capabilities](#features--capabilities)
 - [Repository & Workspace Structure](#repository--workspace-structure)
   - [The Skill Repository](#the-skill-repository)
   - [The Teaching Workspace](#the-teaching-workspace-created-locally)
@@ -69,6 +70,30 @@ If you want to manually initialize a new study directory with the required folde
 ```bash
 npx github:Premansh12/med-mentor
 ```
+
+---
+
+## Features & Capabilities
+
+### 🎥 Flight Simulator for Clinical Reasoning
+Imagine having a personal medical school mentor, board exam coach, and senior attending resident sitting inside your terminal, walking you through patient cases, quizzing you on drug dosages, and grading your diagnostic accuracy—all tailored to your active study goals.
+
+### 🛠️ Interactive HTML Widget Catalog
+Lessons aren’t just static text. Agents generate clean, offline-ready HTML interfaces directly in your study folder:
+*   **Active-Recall Flashcards**: Double-sided diagnostic cards with interactive click-to-flip functionality.
+*   **Clinical Algorithm Flowcharts**: Interactive decision-making trees (e.g., *“Determine next step in suspected Pulmonary Embolism based on Wells Criteria”*).
+*   **Interactive Quizzes**: Multiple-choice board prep questions with immediate clinical rationale disclosures.
+*   **Dosage & Metric Calculators**: Live calculators to practice patient dosing (e.g., GFR, CHADS₂-VASc score).
+*   **Interactive Checklists**: Procedural guides (OSCE preparation) to check off surgical or diagnostic steps.
+
+### 🎨 Tufte-Inspired Editorial Design
+Lessons paired with `./assets/styles.css` are designed to look like editorial medical journals (clean typography, zero clutter, phone-friendly layouts) to reduce cognitive load while studying.
+
+### 🔒 Safety-First Medical Sourcing
+An integrated safety gate ensures all medical instruction is **high-fidelity and citation-backed**:
+*   No fictitious patient data.
+*   Mandatory links to primary guidelines (AHA, ACC, DSM-5, etc.).
+*   Automatic clinical disclaimer footers built into every lesson.
 
 ---
 
