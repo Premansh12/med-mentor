@@ -76,16 +76,27 @@ try {
     console.log('📝 Created: ./NOTES.md');
   }
 
-  // 3. Install the custom Claude skill to .agents/skills/med-mentor
-  const skillTargetDir = path.join(targetRoot, '.agents', 'skills', 'med-mentor');
-  console.log(`⚡ Installing Claude skill to .agents/skills/med-mentor...`);
-  
-  // Copy SKILL.md
-  copyFileSyncSafe(path.join(packageRoot, 'SKILL.md'), path.join(skillTargetDir, 'SKILL.md'));
-  
-  // Copy references and formats subdirectories
-  copyDirSync(path.join(packageRoot, 'references'), path.join(skillTargetDir, 'references'));
-  copyDirSync(path.join(packageRoot, 'formats'), path.join(skillTargetDir, 'formats'));
+  // 3. Install the custom skill to various agent config directories
+  const agentDirs = [
+    path.join('.agents', 'skills', 'med-mentor'),
+    path.join('.codex', 'skills', 'med-mentor'),
+    path.join('.opencode', 'skills', 'med-mentor'),
+    path.join('.hermes', 'skills', 'med-mentor')
+  ];
+
+  console.log(`⚡ Installing agent skill files...`);
+  for (const relPath of agentDirs) {
+    const skillTargetDir = path.join(targetRoot, relPath);
+    
+    // Copy SKILL.md
+    copyFileSyncSafe(path.join(packageRoot, 'SKILL.md'), path.join(skillTargetDir, 'SKILL.md'));
+    
+    // Copy references and formats subdirectories
+    copyDirSync(path.join(packageRoot, 'references'), path.join(skillTargetDir, 'references'));
+    copyDirSync(path.join(packageRoot, 'formats'), path.join(skillTargetDir, 'formats'));
+    
+    console.log(`  ✓ Installed to ./${relPath}`);
+  }
 
   console.log('\x1b[32m%s\x1b[0m', '✅ Success! med-mentor workspace and skill initialized successfully.');
   console.log('\n\x1b[33m💡 What to do next:\x1b[0m');

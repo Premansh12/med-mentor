@@ -49,17 +49,22 @@ sequenceDiagram
 ## Getting Started
 
 ### 1. Installing as an Agent Skill (Recommended)
-To enable your AI agent (like Claude Code) to dynamically teach you clinical subjects, add this skill to your workspace. The agent will auto-discover it.
+To enable your AI agent to dynamically teach you clinical subjects, add this skill to your workspace. The skill is fully compatible with any agent harness supporting workspace configuration directories:
+*   **Claude Code** (`.agents/skills/`)
+*   **Antigravity & Antigravity CLI** (`.agents/skills/`)
+*   **Codex & Codex CLI** (`.codex/skills/`)
+*   **OpenCode** (`.opencode/skills/`)
+*   **Hermes Agent** (`.hermes/skills/`)
+*   **Cline, Roo-Code, Amp, etc.**
 
 Run the following command in your terminal inside your project/study directory:
 ```bash
 npx skills add Premansh12/med-mentor
 ```
+*The `skills` manager will automatically detect your active agent harness and install the skill files in the correct configuration subdirectory.*
 
-This downloads `SKILL.md`, `references/`, and `formats/` and places them in `.agents/skills/med-mentor` where compatible agents automatically load the instructions.
-
-### 2. Initializing the Workspace CLI
-If you want to manually initialize a new study directory with the required folders (`lessons/`, `assets/`, `learning-records/`) and templates (`MISSION.md`, `RESOURCES.md`, `NOTES.md`), you can run the CLI script directly from GitHub (no authentication or configuration required):
+### 2. Initializing the Workspace CLI (Scaffolding for All Agents)
+If you want to manually initialize a new study directory with the required folders (`lessons/`, `assets/`, `learning-records/`) and templates (`MISSION.md`, `RESOURCES.md`, `NOTES.md`), you can run the CLI script directly from GitHub. This will automatically copy the skill configuration files for **all supported agent harnesses** (Claude Code, Codex, Antigravity, OpenCode, and Hermes Agent) at once:
 
 ```bash
 npx github:Premansh12/med-mentor
