@@ -4,7 +4,7 @@
   "description": "Initialize a med-mentor teaching workspace and install the Claude agent skill.",
   "main": "bin/cli.js",
   "bin": {
-    "med-mentor": "./bin/cli.js"
+    "med-mentor": "bin/cli.js"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
