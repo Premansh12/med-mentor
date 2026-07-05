@@ -18,10 +18,10 @@ Paper, not screen. Mostly monochrome, with one restrained accent used sparingly 
 ```css
 --color-bg: #F8F6F1;       /* page background */
 --color-paper: #FCFBF8;    /* content surface, if distinguished from bg */
---color-text: #1B1B1B;     /* body text */
---color-muted: #676767;    /* captions, metadata, footnotes */
+--color-text: #0A0A0A;     /* body text */
+--color-muted: #4E4D48;    /* captions, metadata, footnotes */
 --color-accent: #6E1F2B;   /* deep burgundy — or forest green / oxidized bronze; pick one per workspace and hold it */
---color-hairline: #DEDAD1; /* dividers, table rules, borders */
+--color-hairline: #D0CBBF; /* dividers, table rules, borders */
 ```
 
 No medical blue, no green-means-good/red-means-bad UI coloring. Correctness in quizzes is communicated with words and weight, not stoplight color (see `lesson-authoring.md` on feedback tone).

@@ -5,7 +5,7 @@
 ### A stateful workspace and Agent Harness skill for medical education & clinical reasoning
 
 [![License: GPL v3](https://img.shields.gl/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![GitHub version](https://img.shields.gl/badge/version-1.1.0-green.svg)](https://github.com/Premansh12/med-mentor/releases)
+[![GitHub version](https://img.shields.gl/badge/version-1.1.1-green.svg)](https://github.com/Premansh12/med-mentor/releases)
 [![Skills Registry](https://img.shields.gl/badge/skills.sh-med--mentor-orange.svg)](https://skills.sh/)
 
 **med-mentor** is a custom agent skill and structured workspace environment designed for medical students, residents, physicians, nurses, and other healthcare trainees. It enables AI coding agents (like Claude Code or Antigravity) to guide users through structured, stateful clinical lessons, board preparation (USMLE, COMLEX, NCLEX, specialty board exams), and clinical reasoning drills using interactive HTML widgets.

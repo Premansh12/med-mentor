@@ -7,10 +7,10 @@
      but keep it to one accent, used sparingly, never as a fill. */
   --color-bg: #F8F6F1;
   --color-paper: #FCFBF8;
-  --color-text: #1B1B1B;
-  --color-muted: #676767;
+  --color-text: #0A0A0A;
+  --color-muted: #4E4D48;
   --color-accent: #6E1F2B;
-  --color-hairline: #DEDAD1;
+  --color-hairline: #D0CBBF;
 
   /* Type */
   --font-serif: "EB Garamond", "Cormorant Garamond", Georgia, serif;
