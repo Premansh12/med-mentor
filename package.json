@@ -1,0 +1,36 @@
+{
+  "name": "@premansh12/med-mentor",
+  "version": "1.0.0",
+  "description": "Initialize a med-mentor teaching workspace and install the Claude agent skill.",
+  "main": "bin/cli.js",
+  "bin": {
+    "med-mentor": "./bin/cli.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Premansh12/med-mentor.git"
+  },
+  "keywords": [
+    "claude",
+    "skill",
+    "agent",
+    "medical",
+    "education"
+  ],
+  "author": "premansh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Premansh12/med-mentor/issues"
+  },
+  "homepage": "https://github.com/Premansh12/med-mentor#readme",
+  "files": [
+    "bin",
+    "formats",
+    "references",
+    "SKILL.md",
+    "README.md"
+  ]
+}
