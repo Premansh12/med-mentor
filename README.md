@@ -59,17 +59,11 @@ npx skills add Premansh12/med-mentor
 This downloads `SKILL.md`, `references/`, and `formats/` and places them in `.agents/skills/med-mentor` where compatible agents automatically load the instructions.
 
 ### 2. Initializing the Workspace CLI
-If you want to manually initialize a new study directory with the required folders (`lessons/`, `assets/`, `learning-records/`) and templates (`MISSION.md`, `RESOURCES.md`, `NOTES.md`), you can run the package directly:
+If you want to manually initialize a new study directory with the required folders (`lessons/`, `assets/`, `learning-records/`) and templates (`MISSION.md`, `RESOURCES.md`, `NOTES.md`), you can run the CLI script directly from GitHub (no authentication or configuration required):
 
 ```bash
-npx @premansh12/med-mentor
+npx github:Premansh12/med-mentor
 ```
-
-> [!NOTE]
-> Since this package is hosted on the GitHub Packages NPM registry, make sure you configure your local `~/.npmrc` to look for `@premansh12` scoped packages:
-> ```ini
-> @premansh12:registry=https://npm.pkg.github.com
-> ```
 
 ---
 
