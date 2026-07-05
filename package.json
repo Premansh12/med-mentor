@@ -1,6 +1,6 @@
 {
   "name": "@premansh12/med-mentor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Initialize a med-mentor teaching workspace and install the Claude agent skill.",
   "main": "bin/cli.js",
   "bin": {
