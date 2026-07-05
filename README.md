@@ -1,42 +1,125 @@
 # med-mentor
 
-A Claude skill for teaching medical personnel — board prep, CME, clinical reasoning, pharmacology, procedural/OSCE skills — through short, interactive HTML lessons built up over many sessions.
+### A stateful workspace and Claude agent skill for medical education & clinical reasoning
 
-## Folder layout
+[![License: GPL v3](https://img.shields.gl/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![GitHub version](https://img.shields.gl/badge/version-1.0.0-green.svg)](https://github.com/Premansh12/med-mentor/releases)
+[![Skills Registry](https://img.shields.gl/badge/skills.sh-med--mentor-orange.svg)](https://skills.sh/)
 
+**med-mentor** is a custom agent skill and structured workspace environment designed for medical students, residents, physicians, nurses, and other healthcare trainees. It enables AI coding agents (like Claude Code or Antigravity) to guide users through structured, stateful clinical lessons, board preparation (USMLE, COMLEX, NCLEX, specialty board exams), and clinical reasoning drills using interactive HTML widgets.
+
+---
+
+## Table of Contents
+- [How it Works](#how-it-works)
+- [Getting Started](#getting-started)
+  - [Installing as an Agent Skill](#1-installing-as-an-agent-skill-recommended)
+  - [Initializing the Workspace CLI](#2-initializing-the-workspace-cli)
+- [Repository & Workspace Structure](#repository--workspace-structure)
+  - [The Skill Repository](#the-skill-repository)
+  - [The Teaching Workspace](#the-teaching-workspace-created-locally)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## How it Works
+
+The skill structures learning dynamically over multiple sessions. Instead of dumping raw textbook information, the agent guides the user by building interactive lessons (with flashcards, diagnostic calculators, quizzes, and clinical algorithms) custom-fit to the user's knowledge stage.
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Agent as AI Coding Agent (Claude)
+    participant Skill as med-mentor Skill (SKILL.md)
+    participant Workspace as Teaching Workspace
+
+    User->>Agent: "Teach me antiarrhythmics / board prep"
+    Agent->>Skill: Reads SKILL.md & references
+    Agent->>Workspace: Checks MISSION.md & learning-records/
+    Note over Agent,Workspace: Determines Zone of Proximal Development (ZPD)
+    Agent->>Workspace: Scaffolds a new Interactive HTML Lesson
+    Workspace->>User: Renders lesson.html (quizzes, checklists, etc.)
+    User->>Agent: Interacts and answers questions
+    Agent->>Workspace: Logs clinical pearls & misses to learning-records/
+```
+
+---
+
+## Getting Started
+
+### 1. Installing as an Agent Skill (Recommended)
+To enable your AI agent (like Claude Code) to dynamically teach you clinical subjects, add this skill to your workspace. The agent will auto-discover it.
+
+Run the following command in your terminal inside your project/study directory:
+```bash
+npx skills add Premansh12/med-mentor
+```
+
+This downloads `SKILL.md`, `references/`, and `formats/` and places them in `.agents/skills/med-mentor` where compatible agents automatically load the instructions.
+
+### 2. Initializing the Workspace CLI
+If you want to manually initialize a new study directory with the required folders (`lessons/`, `assets/`, `learning-records/`) and templates (`MISSION.md`, `RESOURCES.md`, `NOTES.md`), you can run the package directly:
+
+```bash
+npx @premansh12/med-mentor
+```
+
+> [!NOTE]
+> Since this package is hosted on the GitHub Packages NPM registry, make sure you configure your local `~/.npmrc` to look for `@premansh12` scoped packages:
+> ```ini
+> @premansh12:registry=https://npm.pkg.github.com
+> ```
+
+---
+
+## Repository & Workspace Structure
+
+### The Skill Repository
+This repository contains the skill configuration, documentation references for the AI agent, and template formats:
 ```
 med-mentor/
-├── SKILL.md                        Entry point. Trigger description + a table
-│                                    pointing to the right reference file per task.
-│                                    Keep this thin — it's loaded on every trigger.
-├── README.md                        This file. Human-facing map, not read by Claude.
+├── bin/
+│   └── cli.js                     # CLI execution script (run via npx)
 ├── formats/
-│   ├── MISSION-FORMAT.md            Template for the workspace's MISSION.md
-│   ├── RESOURCES-FORMAT.md          Template for the workspace's RESOURCES.md
-│   └── LEARNING-RECORD-FORMAT.md    Template for ./learning-records/*.md entries
-└── references/
-    ├── mission-and-resources.md     Establishing/updating MISSION.md, building
-    │                                RESOURCES.md, finding communities (wisdom).
-    ├── learning-design.md           Philosophy, fluency vs. storage strength,
-    │                                zone of proximal development, knowledge vs. skills.
-    ├── lesson-authoring.md          How to write a lesson, the interactive HTML
-    │                                widget catalog (quizzes, calculators, checklists,
-    │                                flashcards, diagrams, algorithms), and asset reuse.
-    └── safety-and-sourcing.md       Non-negotiable rules: no real patient data,
-                                     cite every clinical figure, education-only
-                                     framing, redirect on real-patient questions.
+│   ├── MISSION-FORMAT.md          # Template for the user's MISSION.md
+│   ├── RESOURCES-FORMAT.md        # Template for the user's RESOURCES.md
+│   └── LEARNING-RECORD-FORMAT.md  # Template for session learning records
+├── references/
+│   ├── learning-design.md         # Educational philosophy and lesson pacing
+│   ├── lesson-authoring.md        # Interactive HTML widgets and asset specs
+│   ├── mission-and-resources.md   # Guidance on setting up goals and study sources
+│   └── safety-and-sourcing.md     # Non-negotiable clinical safety & citation rules
+├── SKILL.md                       # Entry point skill definition for agents
+└── LICENSE                        # GNU GPL v3 License
 ```
 
-## Why it's split up this way
+### The Teaching Workspace (Created Locally)
+When the skill runs or is initialized, it builds the following workspace in your current directory:
+```
+workspace/
+├── MISSION.md                     # Why you are studying and what exams you're targetting
+├── RESOURCES.md                   # List of verified clinical resources & directories
+├── NOTES.md                       # Your personal preferences and study notes
+├── lessons/                       # Short, self-contained interactive HTML lessons
+├── learning-records/              # Numbered markdown files recording learned pearls and misses
+└── assets/                        # Shared CSS, JS quiz engines, and calculators
+```
 
-A single monolithic `SKILL.md` gets re-read in full on every trigger, whether the task is "set up my mission for the first time" or "add one quiz question to lesson 12." Splitting by concern means:
+---
 
-- `SKILL.md` stays short (loaded every time, so it should be cheap)
-- Each `references/*.md` is only opened when that specific job comes up
-- `safety-and-sourcing.md` is the one exception — it's small and applies to almost everything, so it's cheap to keep in mind throughout a session rather than re-deriving
+## Contributing
 
-If you're extending this skill (e.g. adding a specialty-specific reference pack, like an ICU-specific dosing set), add it as its own file under `references/` and add a row to the table in `SKILL.md` rather than growing any single file past a couple hundred lines.
+We welcome contributions to help improve the med-mentor framework! Whether you are a developer improving the CLI scaffolding or a medical professional writing clinical references/lesson templates:
 
-## The actual teaching workspace
+1. Fork this repository.
+2. Create a new branch: `git checkout -b feature/amazing-feature`.
+3. If extending medical reference materials under `references/`, make sure they strictly adhere to the guidelines in [references/safety-and-sourcing.md](references/safety-and-sourcing.md) (no real patient data, clear clinical citation).
+4. Commit your changes and push: `git commit -m 'Add antiarrhythmic references' && git push origin feature/amazing-feature`.
+5. Open a Pull Request.
 
-This skill folder is *not* where lessons live. When the skill runs, it treats the *user's current working directory* as the teaching workspace and creates `MISSION.md`, `RESOURCES.md`, `learning-records/`, `lessons/`, `assets/`, and `NOTES.md` there. This folder only holds the skill's own instructions and templates.
+---
+
+## License
+
+This project is licensed under the terms of the **GNU General Public License v3.0 (GPL-3.0)**. See the [LICENSE](LICENSE) file for the full text.
