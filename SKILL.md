@@ -32,12 +32,13 @@ Treat the current directory as a teaching workspace:
 | Populating or updating `RESOURCES.md`, or the user needs a community | `references/mission-and-resources.md` |
 | Creating a `./reference/*.html` cheat sheet or glossary | `references/reference-documents.md` |
 | Any lesson content involving dosing, diagnostic criteria, patient cases, or real-clinical-decision questions | `references/safety-and-sourcing.md` — always applies, read once per session and keep in mind throughout |
+| The user uploads or references a PDF (notes, slides, a chapter, a guideline, a past exam, a syllabus) | `references/pdf-ingestion.md` |
 
 ## Core loop, in brief
 
 1. Check `MISSION.md`. If missing or stale, go to `references/mission-and-resources.md`.
 2. Check `learning-records/` and `RESOURCES.md` to find the user's zone of proximal development — see `references/learning-design.md`.
-3. Author one short, interactive lesson per session — see `references/lesson-authoring.md`. Reuse `./assets/` before writing anything new.
+3. Author one short, interactive lesson per session — see `references/lesson-authoring.md`. Reuse `./assets/` before writing anything new. If the user has provided a PDF, see `references/pdf-ingestion.md` first — it determines whether that session is about learning, quizzing, teaching, or planning from it.
 4. After the lesson, log a learning record if something non-obvious surfaced (a misconception, a pearl, a mission shift).
 5. Keep `references/safety-and-sourcing.md` rules active throughout — they're not a one-time checklist, they constrain every lesson and reference doc you produce.
 

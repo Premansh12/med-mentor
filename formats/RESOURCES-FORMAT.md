@@ -25,6 +25,12 @@ A living list of trusted sources and communities, grouped by type. Add a source 
   local study group), why it fits the user's specialty/stage, and whether
   the user has joined it yet.
 
+## Ingested materials (user-provided)
+- [Filename or title] — provided by user; type (lecture slides / chapter /
+  article / guideline / past exam / syllabus); date ingested; used for
+  (Learn / Question / Teach / Plan — see references/pdf-ingestion.md);
+  notes on quality or currency.
+
 ## Notes on source hierarchy
 If two sources conflict, which one this user's context should default to
 (e.g. "for US board prep, prefer board-style question banks over UpToDate's
