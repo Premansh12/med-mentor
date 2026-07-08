@@ -97,6 +97,17 @@ An integrated safety gate ensures all medical instruction is **high-fidelity and
 *   Mandatory links to primary guidelines (AHA, ACC, DSM-5, etc.).
 *   Automatic clinical disclaimer footers built into every lesson.
 
+### 📄 Smart PDF & Syllabus Ingestion
+Upload or reference your own notes or curriculum documents to ground study sessions:
+*   **Structured Resource Learning**: Convert lecture slides, guideline articles, or textbook chapters into compressed, Tufte-style reference documents.
+*   **Custom Vignette Practice**: Generate diagnostic quizzes from uploaded note files or practice-test questions.
+*   **Intelligent Study Planning**: Provide a rotation schedule, syllabus outline, or exam blueprint to automatically structure a sequenced study plan.
+
+### 🤖 Multi-Harness Skill Compatibility
+The skill is designed to run natively inside any of your favorite agent tools:
+*   Includes configuration and deployment support for **Claude Code, Antigravity, Codex, OpenCode, and Hermes Agent**.
+*   Zero manual mapping needed; the CLI configures and installs the skill files to the correct agent directories automatically.
+
 ---
 
 ## Repository & Workspace Structure
